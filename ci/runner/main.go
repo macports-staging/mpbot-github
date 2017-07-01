@@ -12,8 +12,7 @@ func main() {
 		log.Fatal(err)
 	}
 	err = session.Run()
-	ci.GlobalLogger.LogTextChan <- nil
-	ci.GlobalLogger.Wait()
+	ci.GlobalLogger.Quit()
 	if err != nil {
 		log.Fatal(err)
 	}

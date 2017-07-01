@@ -52,10 +52,10 @@ func (worker *buildWorker) start() {
 						path.Join(portTmpDir, "logs/dependencies-progress.txt"),
 					}
 					// TODO: upload to Minio?
-					//GlobalLogger.LogFileChan <- &LogFile{
-					//	"port-" + port + "-dep-install-output-" + statusString,
-					//	logFilename,
-					//}
+					GlobalLogger.LogBigFileChan <- &LogFile{
+						"port-" + port + "-dep-install-output-" + statusString,
+						logFilename,
+					}
 					if err != nil {
 						continue
 					}
@@ -75,10 +75,10 @@ func (worker *buildWorker) start() {
 						"port-" + subport + "-install-summary-" + statusString,
 						path.Join(portTmpDir, "logs/ports-progress.txt"),
 					}
-					//GlobalLogger.LogFileChan <- &LogFile{
-					//	"port-" + port + "-install-output-" + statusString,
-					//	logFilename,
-					//}
+					GlobalLogger.LogBigFileChan <- &LogFile{
+						"port-" + port + "-install-output-" + statusString,
+						logFilename,
+					}
 				}
 			}
 		}
